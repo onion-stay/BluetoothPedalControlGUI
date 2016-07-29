@@ -1,0 +1,12 @@
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\Arduino\Printing\BluetoothGuitarController\BluetoothGuitarController\bin\Debug\BluetoothGuitarController.exe.config
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\Arduino\Printing\BluetoothGuitarController\BluetoothGuitarController\bin\Debug\BluetoothGuitarController.exe
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\Arduino\Printing\BluetoothGuitarController\BluetoothGuitarController\bin\Debug\BluetoothGuitarController.pdb
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\Arduino\Printing\BluetoothGuitarController\BluetoothGuitarController\obj\Debug\BluetoothGuitarController.csprojResolveAssemblyReference.cache
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\Arduino\Printing\BluetoothGuitarController\BluetoothGuitarController\obj\Debug\BluetoothGuitarController.Form1.resources
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\Arduino\Printing\BluetoothGuitarController\BluetoothGuitarController\obj\Debug\BluetoothGuitarController.Properties.Resources.resources
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\Arduino\Printing\BluetoothGuitarController\BluetoothGuitarController\obj\Debug\BluetoothGuitarController.csproj.GenerateResource.Cache
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\Arduino\Printing\BluetoothGuitarController\BluetoothGuitarController\obj\Debug\BluetoothGuitarController.exe
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\Arduino\Printing\BluetoothGuitarController\BluetoothGuitarController\obj\Debug\BluetoothGuitarController.pdb
+C:\Users\Eric\Documents\GitHub\BluetoothGuitarController\BluetoothGuitarController\bin\Debug\BluetoothGuitarController.exe.config
+C:\Users\Eric\Documents\GitHub\BluetoothGuitarController\BluetoothGuitarController\obj\Debug\BluetoothGuitarController.exe
+C:\Users\Eric\Documents\GitHub\BluetoothGuitarController\BluetoothGuitarController\obj\Debug\BluetoothGuitarController.pdb
