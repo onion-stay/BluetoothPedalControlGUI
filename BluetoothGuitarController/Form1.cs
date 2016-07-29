@@ -124,195 +124,111 @@ namespace BluetoothGuitarController
         // Effect parameter changes
         private void tbDistGain_ValueChanged(object sender, EventArgs e)
         {
-            if (profileActive)
-            {
-                UpdateEffectObjects("Form", "Distortion", "Gain");
-            }
-            else
-            {
-                txtDistGain.Text = (100 * tbDistGain.Value / maximumPosition).ToString("X");
-                if (txtDistGain.Text.Length < 2)
-                    txtDistGain.Text = "0" + txtDistGain.Text;
-                UpdateEffectObjects("Form", "Distortion", "Gain");
-                txtDistGain.Text = (100 * tbDistGain.Value / maximumPosition).ToString();
-            }
+            txtDistGain.Text = (100 * tbDistGain.Value / maximumPosition).ToString("X");
+            if (txtDistGain.Text.Length < 2)
+                txtDistGain.Text = "0" + txtDistGain.Text;
+            UpdateEffectObjects("Form", "Distortion", "Gain");
+            txtDistGain.Text = (100 * tbDistGain.Value / maximumPosition).ToString();
         }
 
         private void tbDistTone_ValueChanged(object sender, EventArgs e)
         {
-            if (profileActive)
-            {
-                UpdateEffectObjects("Form", "Distortion", "Tone");
-            }
-            else
-            {
-                txtDistTone.Text = (100 * tbDistTone.Value / maximumPosition).ToString("X");
-                if (txtDistTone.Text.Length < 2)
-                    txtDistTone.Text = "0" + txtDistTone.Text;
-                UpdateEffectObjects("Form", "Distortion", "Tone");
-                txtDistTone.Text = (100 * tbDistTone.Value / maximumPosition).ToString();
-            }
+            txtDistTone.Text = (100 * tbDistTone.Value / maximumPosition).ToString("X");
+            if (txtDistTone.Text.Length < 2)
+                txtDistTone.Text = "0" + txtDistTone.Text;
+            UpdateEffectObjects("Form", "Distortion", "Tone");
+            txtDistTone.Text = (100 * tbDistTone.Value / maximumPosition).ToString();
         }
 
         private void tbRevReverb_ValueChanged(object sender, EventArgs e)
         {
-            if (profileActive)
-            {
-                UpdateEffectObjects("Form", "Reverb", "Reverb");
-            }
-            else
-            {
-                txtRevReverb.Text = (100 * tbRevReverb.Value / maximumPosition).ToString("X");
-                if (txtRevReverb.Text.Length < 2)
-                    txtRevReverb.Text = "0" + txtRevReverb.Text;
-                UpdateEffectObjects("Form", "Reverb", "Reverb");
-                txtRevReverb.Text = (100 * tbRevReverb.Value / maximumPosition).ToString();
-            }
+            txtRevReverb.Text = (100 * tbRevReverb.Value / maximumPosition).ToString("X");
+            if (txtRevReverb.Text.Length < 2)
+                txtRevReverb.Text = "0" + txtRevReverb.Text;
+            UpdateEffectObjects("Form", "Reverb", "Reverb");
+            txtRevReverb.Text = (100 * tbRevReverb.Value / maximumPosition).ToString();
         }
 
         private void tbDelDelay_ValueChanged(object sender, EventArgs e)
         {
-            if (profileActive)
-            {
-                UpdateEffectObjects("Form", "Delay", "Delay");
-            }
-            else
-            {
-                txtDelDelay.Text = (100 * tbDelDelay.Value / maximumPosition).ToString("X");
-                if (txtDelDelay.Text.Length < 2)
-                    txtDelDelay.Text = "0" + txtDelDelay.Text;
-                UpdateEffectObjects("Form", "Delay", "Delay");
-                txtDelDelay.Text = (100 * tbDelDelay.Value / maximumPosition).ToString();
-            }
+            txtDelDelay.Text = (100 * tbDelDelay.Value / maximumPosition).ToString("X");
+            if (txtDelDelay.Text.Length < 2)
+                txtDelDelay.Text = "0" + txtDelDelay.Text;
+            UpdateEffectObjects("Form", "Delay", "Delay");
+            txtDelDelay.Text = (100 * tbDelDelay.Value / maximumPosition).ToString();
         }
 
         private void tbDelIntensity_ValueChanged(object sender, EventArgs e)
         {
-            if (profileActive)
-            {
-                UpdateEffectObjects("Form", "Delay", "Intensity");
-            }
-            else
-            {
-                txtDelIntensity.Text = (100 * tbDelIntensity.Value / maximumPosition).ToString("X");
-                if (txtDelIntensity.Text.Length < 2)
-                    txtDelIntensity.Text = "0" + txtDelIntensity.Text;
-                UpdateEffectObjects("Form", "Delay", "Intensity");
-                txtDelIntensity.Text = (100 * tbDelIntensity.Value / maximumPosition).ToString();
-            }
+            txtDelIntensity.Text = (100 * tbDelIntensity.Value / maximumPosition).ToString("X");
+            if (txtDelIntensity.Text.Length < 2)
+                txtDelIntensity.Text = "0" + txtDelIntensity.Text;
+            UpdateEffectObjects("Form", "Delay", "Intensity");
+            txtDelIntensity.Text = (100 * tbDelIntensity.Value / maximumPosition).ToString();
         }
 
         private void tbChorDepth_ValueChanged(object sender, EventArgs e)
         {
-            if (profileActive)
-            {
-                UpdateEffectObjects("Profile", "Chorus", "Depth");
-            }
-            else
-            {
-                txtChorDepth.Text = (100 * tbChorDepth.Value / maximumPosition).ToString("X");
-                if (txtChorDepth.Text.Length < 2)
-                    txtChorDepth.Text = "0" + txtChorDepth.Text;
-                UpdateEffectObjects("Form", "Chorus", "Depth");
-                txtChorDepth.Text = (100 * tbChorDepth.Value / maximumPosition).ToString();
-            }
+            txtChorDepth.Text = (100 * tbChorDepth.Value / maximumPosition).ToString("X");
+            if (txtChorDepth.Text.Length < 2)
+                txtChorDepth.Text = "0" + txtChorDepth.Text;
+            UpdateEffectObjects("Form", "Chorus", "Depth");
+            txtChorDepth.Text = (100 * tbChorDepth.Value / maximumPosition).ToString();
         }
 
         private void tbChorRate_ValueChanged(object sender, EventArgs e)
         {
-            if (profileActive)
-            {
-                UpdateEffectObjects("Profile", "Chorus", "Rate");
-            }
-            else
-            {
-                txtChorRate.Text = (100 * tbChorRate.Value / maximumPosition).ToString("X");
-                if (txtChorRate.Text.Length < 2)
-                    txtChorRate.Text = "0" + txtChorRate.Text;
-                UpdateEffectObjects("Form", "Chorus", "Rate");
-                txtChorRate.Text = (100 * tbChorRate.Value / maximumPosition).ToString();
-            }
+            txtChorRate.Text = (100 * tbChorRate.Value / maximumPosition).ToString("X");
+            if (txtChorRate.Text.Length < 2)
+                txtChorRate.Text = "0" + txtChorRate.Text;
+            UpdateEffectObjects("Form", "Chorus", "Rate");
+            txtChorRate.Text = (100 * tbChorRate.Value / maximumPosition).ToString();
         }
 
         // Effect volume changes
         private void tbLvlMaster_ValueChanged(object sender, EventArgs e)
         {
-            if (profileActive)
-            {
-                UpdateEffectObjects("Form", "Volume", "Master");
-            }
-            else
-            {
-                txtLvlMaster.Text = tbLvlMaster.Value.ToString("X");
-                if (txtLvlMaster.Text.Length < 2)
-                    txtLvlMaster.Text = "0" + txtLvlMaster.Text;
-                UpdateEffectObjects("Form", "Volume", "Master");
-                txtLvlMaster.Text = tbLvlMaster.Value.ToString();
-            }
+            txtLvlMaster.Text = tbLvlMaster.Value.ToString("X");
+            if (txtLvlMaster.Text.Length < 2)
+                txtLvlMaster.Text = "0" + txtLvlMaster.Text;
+            UpdateEffectObjects("Form", "Volume", "Master");
+            txtLvlMaster.Text = tbLvlMaster.Value.ToString();
         }
 
         private void tbLvlDist_ValueChanged(object sender, EventArgs e)
         {
-            if (profileActive)
-            {
-                UpdateEffectObjects("Form", "Distortion", "Volume");
-            }
-            else
-            {
-                txtLvlDist.Text = tbLvlDist.Value.ToString("X");
-                if (txtLvlDist.Text.Length < 2)
-                    txtLvlDist.Text = "0" + txtLvlDist.Text;
-                UpdateEffectObjects("Form", "Distortion", "Volume");
-                txtLvlDist.Text = tbLvlDist.Value.ToString();
-            }
+            txtLvlDist.Text = tbLvlDist.Value.ToString("X");
+            if (txtLvlDist.Text.Length < 2)
+                txtLvlDist.Text = "0" + txtLvlDist.Text;
+            UpdateEffectObjects("Form", "Distortion", "Volume");
+            txtLvlDist.Text = tbLvlDist.Value.ToString();
         }
 
         private void tbLvlDel_ValueChanged(object sender, EventArgs e)
         {
-            if (profileActive)
-            {
-                UpdateEffectObjects("Form", "Delay", "Volume");
-            }
-            else
-            {
-                txtLvlDel.Text = tbLvlDel.Value.ToString("X");
-                if (txtLvlDel.Text.Length < 2)
-                    txtLvlDel.Text = "0" + txtLvlDel.Text;
-                UpdateEffectObjects("Form", "Delay", "Volume");
-                txtLvlDel.Text = tbLvlDel.Value.ToString();
-            }
+            txtLvlDel.Text = tbLvlDel.Value.ToString("X");
+            if (txtLvlDel.Text.Length < 2)
+                txtLvlDel.Text = "0" + txtLvlDel.Text;
+            UpdateEffectObjects("Form", "Delay", "Volume");
+            txtLvlDel.Text = tbLvlDel.Value.ToString();
         }
 
         private void tbLvlRev_ValueChanged(object sender, EventArgs e)
         {
-            if (profileActive)
-            {
-                UpdateEffectObjects("Form", "Reverb", "Volume");
-            }
-            else
-            {
-                txtLvlRev.Text = tbLvlRev.Value.ToString("X");
-                if (txtLvlRev.Text.Length < 2)
-                    txtLvlRev.Text = "0" + txtLvlRev.Text;
-                UpdateEffectObjects("Form", "Reverb", "Volume");
-                txtLvlRev.Text = tbLvlRev.Value.ToString();
-            }
+            txtLvlRev.Text = tbLvlRev.Value.ToString("X");
+            if (txtLvlRev.Text.Length < 2)
+                txtLvlRev.Text = "0" + txtLvlRev.Text;
+            UpdateEffectObjects("Form", "Reverb", "Volume");
+            txtLvlRev.Text = tbLvlRev.Value.ToString();
         }
 
         private void tbLvlChor_ValueChanged(object sender, EventArgs e)
         {
-            if (profileActive)
-            {
-                UpdateEffectObjects("Profile", "Chorus", "Volume");
-            }
-            else
-            {
-                txtLvlChor.Text = tbLvlChor.Value.ToString("X");
-                if (txtLvlChor.Text.Length < 2)
-                    txtLvlChor.Text = "0" + txtLvlChor.Text;
-                UpdateEffectObjects("Form", "Chorus", "Volume");
-                txtLvlChor.Text = tbLvlChor.Value.ToString();
-            }
+            txtLvlChor.Text = tbLvlChor.Value.ToString("X");
+            if (txtLvlChor.Text.Length < 2)
+                txtLvlChor.Text = "0" + txtLvlChor.Text;
+            UpdateEffectObjects("Form", "Chorus", "Volume");
+            txtLvlChor.Text = tbLvlChor.Value.ToString();
         }
 
         /*******************************************
@@ -473,66 +389,7 @@ namespace BluetoothGuitarController
                     }
                     break;
                 case "Profile":
-                    // TODO
-                    index = effectList.FindIndex(x => x.name == effectUpdates);
-                    switch (effectUpdates)
-                    {
-                        case "Chorus":
-                            if (controlUpdates == "Volume")
-                            {
-                                txtLvlChor.Text = tbLvlChor.Value.ToString();
-                            }
-                            else if (controlUpdates == "Depth")
-                            {
-                                txtChorDepth.Text = tbChorDepth.Value.ToString();
-                            }
-                            else
-                            {
-                                txtChorRate.Text = tbChorRate.Value.ToString();
-                            }
-                            break;
-                        case "Delay":
-                            if (controlUpdates == "Volume")
-                            {
-                                txtLvlDel.Text = tbLvlDel.Value.ToString();
-                            }
-                            else if (controlUpdates == "Delay")
-                            {
-                                txtDelDelay.Text = tbDelDelay.Value.ToString(); // Delay control
-                            }
-                            else
-                            {
-                                txtDelIntensity.Text = tbDelIntensity.Value.ToString(); // Intensity control
-                            }
-                            break;
-                        case "Distortion":
-                            if (controlUpdates == "Volume")
-                            {
-                                txtLvlDist.Text = tbLvlDist.Value.ToString();
-                            }
-                            else if (controlUpdates == "Gain")
-                            {
-                                txtDistGain.Text = tbDistGain.Value.ToString(); // Gain control
-                            }
-                            else
-                            {
-                                txtDistTone.Text = tbDistTone.Value.ToString(); // Tone control
-                            }
-                            break;
-                        case "Reverb":
-                            if (controlUpdates == "Volume")
-                            {
-                                txtLvlRev.Text = tbLvlRev.Value.ToString();
-                            }
-                            else if (controlUpdates == "Reverb")
-                            {
-                                txtRevReverb.Text = tbRevReverb.Value.ToString(); // Reverb control
-                            }
-                            break;
-                        case "Volume":
-                            txtLvlMaster.Text = tbLvlMaster.Value.ToString();
-                            break;
-                    }
+                    // Unused as of now
                     break;
             }
         }
@@ -573,6 +430,11 @@ namespace BluetoothGuitarController
 
         private void OpenProfile(string fileName)
         {
+            // 1. Open Profile is called
+            // 2. File opened and parsed, values stored into 3rd buffer location for Effect Objects
+            // 3. Form values are updated based on Effect Object buffer values
+            // 4. Text boxes are changed to reflect new values
+
             string filePath = pwd.ToString() + @"\" + fileName;
             string settings = File.ReadAllText(filePath);
             //MessageBox.Show(filePath+"\n"+settings);
@@ -611,27 +473,44 @@ namespace BluetoothGuitarController
                         tbLvlChor.Value = Convert.ToInt32(effectList.ElementAt(i).volume[2], 16);
                         tbChorDepth.Value = Convert.ToInt32(effectList.ElementAt(i).controls[0].buffer[2], 16);
                         tbChorRate.Value = Convert.ToInt32(effectList.ElementAt(i).controls[1].buffer[2], 16);
+                        // Update Text Boxes
+                        txtLvlChor.Text = tbLvlChor.Value.ToString();
+                        txtChorDepth.Text = tbChorDepth.Value.ToString();
+                        txtChorRate.Text = tbChorRate.Value.ToString();
                         break;
                     case "Delay":
                         // Update TrackBar Values
                         tbLvlDel.Value = Convert.ToInt32(effectList.ElementAt(i).volume[2], 16);
                         tbDelDelay.Value = Convert.ToInt32(effectList.ElementAt(i).controls[0].buffer[2], 16);
                         tbDelIntensity.Value = Convert.ToInt32(effectList.ElementAt(i).controls[1].buffer[2], 16);
+                        // Update Text Boxes
+                        txtLvlDel.Text = tbLvlDel.Value.ToString();
+                        txtDelDelay.Text = tbDelDelay.Value.ToString();
+                        txtDelIntensity.Text = tbDelIntensity.Value.ToString();
                         break;
                     case "Distortion":
                         // Update TrackBar Values
                         tbLvlDist.Value = Convert.ToInt32(effectList.ElementAt(i).volume[2], 16);
                         tbDistGain.Value = Convert.ToInt32(effectList.ElementAt(i).controls[0].buffer[2], 16);
                         tbDistTone.Value = Convert.ToInt32(effectList.ElementAt(i).controls[1].buffer[2], 16);
+                        // Update Text Boxes
+                        txtLvlDist.Text = tbLvlDist.Value.ToString();
+                        txtDistGain.Text = tbDistGain.Value.ToString();
+                        txtDistTone.Text = tbDistTone.Value.ToString();
                         break;
                     case "Reverb":
                         // Update TrackBar Values
                         tbLvlRev.Value = Convert.ToInt32(effectList.ElementAt(i).volume[2], 16);
                         tbRevReverb.Value = Convert.ToInt32(effectList.ElementAt(i).controls[0].buffer[2], 16);
+                        // Update Text Boxes
+                        txtLvlRev.Text = tbLvlRev.Value.ToString();
+                        txtRevReverb.Text = tbRevReverb.Value.ToString();
                         break;
                     case "Volume":
                         // Update TrackBar Values
                         tbLvlMaster.Value = Convert.ToInt32(effectList.ElementAt(i).volume[2], 16);
+                        // Update Text Boxes
+                        txtLvlMaster.Text = tbLvlMaster.Value.ToString();
                         break;
                 }
             }
@@ -661,9 +540,10 @@ namespace BluetoothGuitarController
         {
             List<string> temp = new List<string>();
             string profileStr = "";
+
             for (int i = 0; i < effectList.Count; i++)
             {
-                if (profileActive) // Profile settings
+                if (false & profileActive) // Profile settings
                 {
                     // only the buffer values at [2] should be compared to the old value at [0]
                     // Check for volume changes

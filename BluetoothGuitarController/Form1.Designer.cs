@@ -144,7 +144,7 @@
             // 
             // progBarSendFX
             // 
-            this.progBarSendFX.Location = new System.Drawing.Point(731, 501);
+            this.progBarSendFX.Location = new System.Drawing.Point(382, 501);
             this.progBarSendFX.Name = "progBarSendFX";
             this.progBarSendFX.Size = new System.Drawing.Size(168, 23);
             this.progBarSendFX.TabIndex = 13;
@@ -466,7 +466,7 @@
             // btnSendFX
             // 
             this.btnSendFX.Enabled = false;
-            this.btnSendFX.Location = new System.Drawing.Point(731, 428);
+            this.btnSendFX.Location = new System.Drawing.Point(382, 428);
             this.btnSendFX.Name = "btnSendFX";
             this.btnSendFX.Size = new System.Drawing.Size(168, 67);
             this.btnSendFX.TabIndex = 9;
