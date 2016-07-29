@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.progBarSendFX = new System.Windows.Forms.ProgressBar();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cmbPort = new System.Windows.Forms.ComboBox();
+            this.cmbBaudRate = new System.Windows.Forms.ComboBox();
             this.btnClosePort = new System.Windows.Forms.Button();
             this.btnOpenPort = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -79,14 +84,9 @@
             this.btnOpenProfile = new System.Windows.Forms.Button();
             this.btnSaveProfile = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.cmbBaudRate = new System.Windows.Forms.ComboBox();
-            this.cmbPort = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.progBarSendFX = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -141,6 +141,50 @@
             this.splitContainer1.Size = new System.Drawing.Size(1121, 564);
             this.splitContainer1.SplitterDistance = 919;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // progBarSendFX
+            // 
+            this.progBarSendFX.Location = new System.Drawing.Point(731, 501);
+            this.progBarSendFX.Name = "progBarSendFX";
+            this.progBarSendFX.Size = new System.Drawing.Size(168, 23);
+            this.progBarSendFX.TabIndex = 13;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(12, 504);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(137, 17);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Baud Rate Selection";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(9, 474);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(131, 17);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "COM Port Selection";
+            // 
+            // cmbPort
+            // 
+            this.cmbPort.FormattingEnabled = true;
+            this.cmbPort.Location = new System.Drawing.Point(187, 471);
+            this.cmbPort.Name = "cmbPort";
+            this.cmbPort.Size = new System.Drawing.Size(167, 24);
+            this.cmbPort.TabIndex = 11;
+            // 
+            // cmbBaudRate
+            // 
+            this.cmbBaudRate.FormattingEnabled = true;
+            this.cmbBaudRate.Items.AddRange(new object[] {
+            "9600",
+            "115200"});
+            this.cmbBaudRate.Location = new System.Drawing.Point(187, 501);
+            this.cmbBaudRate.Name = "cmbBaudRate";
+            this.cmbBaudRate.Size = new System.Drawing.Size(167, 24);
+            this.cmbBaudRate.TabIndex = 11;
             // 
             // btnClosePort
             // 
@@ -256,6 +300,7 @@
             this.tbLvlChor.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tbLvlChor.Size = new System.Drawing.Size(56, 304);
             this.tbLvlChor.TabIndex = 1;
+            this.tbLvlChor.Value = 50;
             this.tbLvlChor.ValueChanged += new System.EventHandler(this.tbLvlChor_ValueChanged);
             // 
             // tbLvlRev
@@ -266,6 +311,7 @@
             this.tbLvlRev.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tbLvlRev.Size = new System.Drawing.Size(56, 304);
             this.tbLvlRev.TabIndex = 1;
+            this.tbLvlRev.Value = 50;
             this.tbLvlRev.ValueChanged += new System.EventHandler(this.tbLvlRev_ValueChanged);
             // 
             // tbLvlDel
@@ -276,6 +322,7 @@
             this.tbLvlDel.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tbLvlDel.Size = new System.Drawing.Size(56, 304);
             this.tbLvlDel.TabIndex = 1;
+            this.tbLvlDel.Value = 50;
             this.tbLvlDel.ValueChanged += new System.EventHandler(this.tbLvlDel_ValueChanged);
             // 
             // tbLvlDist
@@ -286,6 +333,7 @@
             this.tbLvlDist.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tbLvlDist.Size = new System.Drawing.Size(56, 304);
             this.tbLvlDist.TabIndex = 1;
+            this.tbLvlDist.Value = 50;
             this.tbLvlDist.ValueChanged += new System.EventHandler(this.tbLvlDist_ValueChanged);
             // 
             // tbLvlMaster
@@ -296,6 +344,7 @@
             this.tbLvlMaster.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tbLvlMaster.Size = new System.Drawing.Size(56, 304);
             this.tbLvlMaster.TabIndex = 1;
+            this.tbLvlMaster.Value = 50;
             this.tbLvlMaster.ValueChanged += new System.EventHandler(this.tbLvlMaster_ValueChanged);
             // 
             // label12
@@ -661,43 +710,6 @@
             this.btnSaveProfile.UseVisualStyleBackColor = true;
             this.btnSaveProfile.Click += new System.EventHandler(this.btnSaveProfile_Click);
             // 
-            // cmbBaudRate
-            // 
-            this.cmbBaudRate.FormattingEnabled = true;
-            this.cmbBaudRate.Items.AddRange(new object[] {
-            "9600",
-            "115200"});
-            this.cmbBaudRate.Location = new System.Drawing.Point(187, 501);
-            this.cmbBaudRate.Name = "cmbBaudRate";
-            this.cmbBaudRate.Size = new System.Drawing.Size(167, 24);
-            this.cmbBaudRate.TabIndex = 11;
-            // 
-            // cmbPort
-            // 
-            this.cmbPort.FormattingEnabled = true;
-            this.cmbPort.Location = new System.Drawing.Point(187, 471);
-            this.cmbPort.Name = "cmbPort";
-            this.cmbPort.Size = new System.Drawing.Size(167, 24);
-            this.cmbPort.TabIndex = 11;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 474);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(131, 17);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "COM Port Selection";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(12, 504);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(137, 17);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "Baud Rate Selection";
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -719,13 +731,6 @@
             this.toolStripLabel.Name = "toolStripLabel";
             this.toolStripLabel.Size = new System.Drawing.Size(109, 20);
             this.toolStripLabel.Text = "Not Connected";
-            // 
-            // progBarSendFX
-            // 
-            this.progBarSendFX.Location = new System.Drawing.Point(731, 501);
-            this.progBarSendFX.Name = "progBarSendFX";
-            this.progBarSendFX.Size = new System.Drawing.Size(168, 23);
-            this.progBarSendFX.TabIndex = 13;
             // 
             // Form1
             // 

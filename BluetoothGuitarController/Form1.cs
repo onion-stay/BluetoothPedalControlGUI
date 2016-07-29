@@ -126,6 +126,7 @@ namespace BluetoothGuitarController
         {
             if (profileActive)
             {
+                UpdateEffectObjects("Form", "Distortion", "Gain");
             }
             else
             {
@@ -141,6 +142,7 @@ namespace BluetoothGuitarController
         {
             if (profileActive)
             {
+                UpdateEffectObjects("Form", "Distortion", "Tone");
             }
             else
             {
@@ -156,6 +158,7 @@ namespace BluetoothGuitarController
         {
             if (profileActive)
             {
+                UpdateEffectObjects("Form", "Reverb", "Reverb");
             }
             else
             {
@@ -171,6 +174,7 @@ namespace BluetoothGuitarController
         {
             if (profileActive)
             {
+                UpdateEffectObjects("Form", "Delay", "Delay");
             }
             else
             {
@@ -186,6 +190,7 @@ namespace BluetoothGuitarController
         {
             if (profileActive)
             {
+                UpdateEffectObjects("Form", "Delay", "Intensity");
             }
             else
             {
@@ -234,6 +239,7 @@ namespace BluetoothGuitarController
         {
             if (profileActive)
             {
+                UpdateEffectObjects("Form", "Volume", "Master");
             }
             else
             {
@@ -249,6 +255,7 @@ namespace BluetoothGuitarController
         {
             if (profileActive)
             {
+                UpdateEffectObjects("Form", "Distortion", "Volume");
             }
             else
             {
@@ -264,6 +271,7 @@ namespace BluetoothGuitarController
         {
             if (profileActive)
             {
+                UpdateEffectObjects("Form", "Delay", "Volume");
             }
             else
             {
@@ -279,6 +287,7 @@ namespace BluetoothGuitarController
         {
             if (profileActive)
             {
+                UpdateEffectObjects("Form", "Reverb", "Volume");
             }
             else
             {
@@ -346,18 +355,14 @@ namespace BluetoothGuitarController
 
         private void InitializeEffectObjects()
         {
-
-
-
-
             foreach (string name in effectNames)
             {
                 List<EffectControl> ctrls = new List<EffectControl>();
                 EffectControl[] tempc = new EffectControl[] { new EffectControl(), new EffectControl() };
                 Effect tempe = new Effect();
-                tempe.volume = new string[] { "0", "0", "0" };
-                tempc[0].buffer = new string[] { "0", "0", "0" };
-                tempc[1].buffer = new string[] { "0", "0", "0" };
+                tempe.volume = new string[] { "FF", "FF", "FF" }; // 255%
+                tempc[0].buffer = new string[] { "FF", "FF", "FF" }; // 255%
+                tempc[1].buffer = new string[] { "FF", "FF", "FF" }; // 255%
                 switch (name)
                 {
                     case "Chorus":
@@ -539,7 +544,7 @@ namespace BluetoothGuitarController
             foreach (string str in changedCtrls)
             {
                 effect = Convert.ToInt32(str.Substring(0, 1)); // effect address character
-                control = Convert.ToInt32(str.Substring(1, 1)); // control address character
+                control = Convert.ToInt32(str.Substring(1, 1), 16); // control address character
                 if (control == Convert.ToInt32("F",16)) // control is the effect volume
                 {
                     effectList.ElementAt(effect).volume[0] = str.Substring(2, 2);
@@ -560,7 +565,10 @@ namespace BluetoothGuitarController
             {
                 lbProfiles.Items.Add(file.Name);
             }
-            lbProfiles.SelectedIndex = 0;
+            if (lbProfiles.Items.Count > 0)
+            {
+                lbProfiles.SelectedIndex = 0;
+            }
         }
 
         private void OpenProfile(string fileName)
@@ -573,7 +581,7 @@ namespace BluetoothGuitarController
             int index = 0;
             int temp = 0;
             string sub = "";
-            char[] delims = { ':', ',', '-' }; // volume, control index, control value
+            char[] delims = { ':', ',', '-', '|' }; // volume, control index, control value
 
             while (index < settings.Length)
             {
@@ -584,7 +592,7 @@ namespace BluetoothGuitarController
                 effectList.ElementAt(temp).volume[2] = profile[1];
                 for (int i = 0; i < effectList.ElementAt(temp).controls.Count; i++)
                 {
-                    effectList.ElementAt(temp).controls[i].buffer[2] = profile[i+1];
+                    effectList.ElementAt(temp).controls[i].buffer[2] = profile[2*i+3];
                 }
                 index = settings.IndexOf('|', index)+1; // update the index to start of the next effect setting
             }
@@ -637,12 +645,12 @@ namespace BluetoothGuitarController
             output = findChangedControls();
             progBarSendFX.Value = 33;
             // Parse data strings and send out data
-            serialPort1.Write(">"+output.Count.ToString()); // notify the MSP432 how many settings were changed
+            serialPort1.Write("<"+output.Count.ToString("X")); // notify the MSP432 how many settings were changed
             foreach (string str in output)
             {
                 serialPort1.Write(str);
             }
-            serialPort1.WriteLine(">"); // notify the MSP432 that all changed settings have been sent
+            serialPort1.WriteLine(">\r"); // notify the MSP432 that all changed settings have been sent
             progBarSendFX.Value = 66;
             // Consolidate the old values of the affected Effect objects to match newly sent values
             UpdateEffectObjectsAfterTX(output);
@@ -669,6 +677,7 @@ namespace BluetoothGuitarController
                     // Check for control changes
                     for (int j = 0; j < effectList.ElementAt(i).controls.Count; j++)
                     {
+                        profileStr = "";
                         if (effectList.ElementAt(i).controls[j].buffer[0] != effectList.ElementAt(i).controls[j].buffer[2])
                         {
                             profileStr += i.ToString();
@@ -684,13 +693,14 @@ namespace BluetoothGuitarController
                     if (effectList.ElementAt(i).volume[0] != effectList.ElementAt(i).volume[1])
                     {
                         profileStr += i.ToString();
-                        profileStr += effectList.ElementAt(i).volume[1]; // note: "F" is used as the address of the volume control
+                        profileStr += "F" + effectList.ElementAt(i).volume[1]; // note: "F" is used as the address of the volume control
                         temp.Add(profileStr);
                     }
                     profileStr = "";
                     // Check for control changes
                     for (int j = 0; j < effectList.ElementAt(i).controls.Count; j++)
                     {
+                        profileStr = "";
                         if (effectList.ElementAt(i).controls[j].buffer[0] != effectList.ElementAt(i).controls[j].buffer[1])
                         {
                             profileStr += i.ToString();
