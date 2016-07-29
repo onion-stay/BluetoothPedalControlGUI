@@ -29,6 +29,7 @@ namespace BluetoothGuitarController
         public Form1()
         {
             InitializeComponent();
+            toolStripPWD.Text = pwd.ToString();
             InitializeEffectObjects();
             InitializeTrackBars();
             UpdateProfileList(); // use default folder
@@ -74,6 +75,18 @@ namespace BluetoothGuitarController
         private void btnOpenProfile_Click(object sender, EventArgs e)
         {
             OpenProfile(lbProfiles.SelectedItem.ToString());
+        }
+
+        private void btnChangeDir_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                DirectoryInfo temp = new DirectoryInfo(fbd.SelectedPath); // change the PWD based on the selected path
+                pwd = temp;
+                UpdateProfileList();
+                toolStripPWD.Text = pwd.ToString();
+            }
         }
 
         // Bluetooth Serial Port Events
@@ -543,56 +556,30 @@ namespace BluetoothGuitarController
 
             for (int i = 0; i < effectList.Count; i++)
             {
-                if (false & profileActive) // Profile settings
+                // Check for volume changes
+                if (effectList.ElementAt(i).volume[0] != effectList.ElementAt(i).volume[1])
                 {
-                    // only the buffer values at [2] should be compared to the old value at [0]
-                    // Check for volume changes
-                    if (effectList.ElementAt(i).volume[0] != effectList.ElementAt(i).volume[2])
+                    profileStr += i.ToString();
+                    profileStr += "F" + effectList.ElementAt(i).volume[1]; // note: "F" is used as the address of the volume control
+                    temp.Add(profileStr);
+                }
+                profileStr = "";
+                // Check for control changes
+                for (int j = 0; j < effectList.ElementAt(i).controls.Count; j++)
+                {
+                    profileStr = "";
+                    if (effectList.ElementAt(i).controls[j].buffer[0] != effectList.ElementAt(i).controls[j].buffer[1])
                     {
                         profileStr += i.ToString();
-                        profileStr += "F" + effectList.ElementAt(i).volume[2]; // note: "F" is used as the address of the volume control
+                        profileStr += j.ToString() + effectList.ElementAt(i).controls[j].buffer[1];
                         temp.Add(profileStr);
                     }
-                    profileStr = "";
-                    // Check for control changes
-                    for (int j = 0; j < effectList.ElementAt(i).controls.Count; j++)
-                    {
-                        profileStr = "";
-                        if (effectList.ElementAt(i).controls[j].buffer[0] != effectList.ElementAt(i).controls[j].buffer[2])
-                        {
-                            profileStr += i.ToString();
-                            profileStr += j.ToString() + effectList.ElementAt(i).controls[j].buffer[2];
-                            temp.Add(profileStr);
-                        }
-                    }
-                    profileStr = "";
                 }
-                else // Custom settings
-                {
-                    // Check for volume changes
-                    if (effectList.ElementAt(i).volume[0] != effectList.ElementAt(i).volume[1])
-                    {
-                        profileStr += i.ToString();
-                        profileStr += "F" + effectList.ElementAt(i).volume[1]; // note: "F" is used as the address of the volume control
-                        temp.Add(profileStr);
-                    }
-                    profileStr = "";
-                    // Check for control changes
-                    for (int j = 0; j < effectList.ElementAt(i).controls.Count; j++)
-                    {
-                        profileStr = "";
-                        if (effectList.ElementAt(i).controls[j].buffer[0] != effectList.ElementAt(i).controls[j].buffer[1])
-                        {
-                            profileStr += i.ToString();
-                            profileStr += j.ToString() + effectList.ElementAt(i).controls[j].buffer[1];
-                            temp.Add(profileStr);
-                        }
-                    }
-                    profileStr = "";
-                }
+                profileStr = "";
             }
             return temp;
         }
+
         
     }
 }

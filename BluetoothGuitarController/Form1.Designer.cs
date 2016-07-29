@@ -87,6 +87,9 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripPWD = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnChangeDir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -135,6 +138,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnChangeDir);
             this.splitContainer1.Panel2.Controls.Add(this.lbProfiles);
             this.splitContainer1.Panel2.Controls.Add(this.btnOpenProfile);
             this.splitContainer1.Panel2.Controls.Add(this.btnSaveProfile);
@@ -685,7 +689,7 @@
             // 
             this.lbProfiles.FormattingEnabled = true;
             this.lbProfiles.ItemHeight = 16;
-            this.lbProfiles.Location = new System.Drawing.Point(12, 97);
+            this.lbProfiles.Location = new System.Drawing.Point(12, 140);
             this.lbProfiles.Name = "lbProfiles";
             this.lbProfiles.Size = new System.Drawing.Size(168, 324);
             this.lbProfiles.TabIndex = 10;
@@ -714,7 +718,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar,
-            this.toolStripLabel});
+            this.toolStripLabel,
+            this.toolStripLabel1,
+            this.toolStripPWD});
             this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1121, 25);
@@ -731,6 +737,29 @@
             this.toolStripLabel.Name = "toolStripLabel";
             this.toolStripLabel.Size = new System.Drawing.Size(109, 20);
             this.toolStripLabel.Text = "Not Connected";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Margin = new System.Windows.Forms.Padding(350, 3, 0, 2);
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(73, 20);
+            this.toolStripLabel1.Text = "Directory:";
+            // 
+            // toolStripPWD
+            // 
+            this.toolStripPWD.Name = "toolStripPWD";
+            this.toolStripPWD.Size = new System.Drawing.Size(42, 20);
+            this.toolStripPWD.Text = "PWD";
+            // 
+            // btnChangeDir
+            // 
+            this.btnChangeDir.Location = new System.Drawing.Point(12, 97);
+            this.btnChangeDir.Name = "btnChangeDir";
+            this.btnChangeDir.Size = new System.Drawing.Size(168, 36);
+            this.btnChangeDir.TabIndex = 11;
+            this.btnChangeDir.Text = "Change Directory";
+            this.btnChangeDir.UseVisualStyleBackColor = true;
+            this.btnChangeDir.Click += new System.EventHandler(this.btnChangeDir_Click);
             // 
             // Form1
             // 
@@ -835,6 +864,9 @@
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripLabel;
         private System.Windows.Forms.ProgressBar progBarSendFX;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripPWD;
+        private System.Windows.Forms.Button btnChangeDir;
     }
 }
 
