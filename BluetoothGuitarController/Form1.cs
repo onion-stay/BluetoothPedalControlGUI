@@ -560,7 +560,7 @@ namespace BluetoothGuitarController
                 if (effectList.ElementAt(i).volume[0] != effectList.ElementAt(i).volume[1])
                 {
                     profileStr += i.ToString();
-                    profileStr += "F" + effectList.ElementAt(i).volume[1]; // note: "F" is used as the address of the volume control
+                    profileStr += "0" + effectList.ElementAt(i).volume[1]; // note: "F" is used as the address of the volume control
                     temp.Add(profileStr);
                 }
                 profileStr = "";
@@ -571,7 +571,7 @@ namespace BluetoothGuitarController
                     if (effectList.ElementAt(i).controls[j].buffer[0] != effectList.ElementAt(i).controls[j].buffer[1])
                     {
                         profileStr += i.ToString();
-                        profileStr += j.ToString() + effectList.ElementAt(i).controls[j].buffer[1];
+                        profileStr += (j+1).ToString() + effectList.ElementAt(i).controls[j].buffer[1];
                         temp.Add(profileStr);
                     }
                 }
