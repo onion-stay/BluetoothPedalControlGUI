@@ -415,13 +415,13 @@ namespace BluetoothGuitarController
             {
                 effect = Convert.ToInt32(str.Substring(0, 1)); // effect address character
                 control = Convert.ToInt32(str.Substring(1, 1), 16); // control address character
-                if (control == Convert.ToInt32("F",16)) // control is the effect volume
+                if (control == 0) // control is the effect volume
                 {
                     effectList.ElementAt(effect).volume[0] = str.Substring(2, 2);
                 }
                 else // control is not the volume
                 {
-                    effectList.ElementAt(effect).controls[control].buffer[0] = str.Substring(2, 2);
+                    effectList.ElementAt(effect).controls[control-1].buffer[0] = str.Substring(2, 2);
                 }
             }
         }
@@ -535,6 +535,8 @@ namespace BluetoothGuitarController
             List<string> output = new List<string>();
             // Determine which effect controls changed in order to only transmit those
             output = findChangedControls();
+            if (output.Count == 0)
+                return; // do not send a message
             progBarSendFX.Value = 33;
             // Parse data strings and send out data
             serialPort1.Write("<"+output.Count.ToString("X")); // notify the MSP432 how many settings were changed
