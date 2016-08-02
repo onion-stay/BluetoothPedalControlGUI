@@ -16,7 +16,7 @@ namespace BluetoothGuitarController
 {
     public partial class Form1 : Form
     {
-        DirectoryInfo pwd = new DirectoryInfo(@"C:\Users\Eric\Documents\BluetoothGuitarProfiles");
+        DirectoryInfo pwd = new DirectoryInfo(@"C:\");
         int maximumPosition = 0;
         int defaultPosition = 0;
         List<Effect> effectList = new List<Effect>();

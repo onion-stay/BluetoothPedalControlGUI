@@ -16,3 +16,7 @@ C:\Users\Eric\Documents\GitHub\BluetoothGuitarController\BluetoothGuitarControll
 C:\Users\Eric\Documents\GitHub\BluetoothGuitarController\BluetoothGuitarController\obj\Debug\BluetoothGuitarController.csproj.GenerateResource.Cache
 C:\Users\Eric\Documents\GitHub\BluetoothGuitarController\BluetoothGuitarController\obj\Debug\BluetoothGuitarController.exe
 C:\Users\Eric\Documents\GitHub\BluetoothGuitarController\BluetoothGuitarController\obj\Debug\BluetoothGuitarController.pdb
+C:\Users\Eric\Documents\GitHub\BluetoothGuitarController\BluetoothGuitarController\bin\Debug\BluetoothGuitarController.exe.manifest
+C:\Users\Eric\Documents\GitHub\BluetoothGuitarController\BluetoothGuitarController\bin\Debug\BluetoothGuitarController.application
+C:\Users\Eric\Documents\GitHub\BluetoothGuitarController\BluetoothGuitarController\obj\Debug\BluetoothGuitarController.exe.manifest
+C:\Users\Eric\Documents\GitHub\BluetoothGuitarController\BluetoothGuitarController\obj\Debug\BluetoothGuitarController.application
